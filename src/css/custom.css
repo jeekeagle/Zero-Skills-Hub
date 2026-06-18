@@ -1,0 +1,21 @@
+/**
+ * Zero-Skills 站点的轻量定制样式
+ */
+
+/* 让首页与正文有更宽松的阅读宽度 */
+.markdown {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* 章节标题更紧凑 */
+h2 {
+  margin-top: 2.2rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  padding-bottom: 0.4rem;
+}
+
+/* 让 code block 在 perspective 类长文档中更醒目 */
+.theme-doc-markdown pre {
+  border-left: 3px solid var(--ifm-color-primary);
+}
