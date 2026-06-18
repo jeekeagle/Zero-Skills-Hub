@@ -1,8 +1,7 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
-// Zero-Skills 侧栏：按 skill 类别组织
-// 一编 = 一个 skill 类别；每个 skill 一个章节
-// docs/<category>/<skill-slug>.md → id 为 "<category>/<skill-slug>"
+// 自动生成 by scripts/sync-skills.py — 不要手改
+// 源数据: Zero-Skills/skills/<category>/<slug>/SKILL.md
 const sidebars: SidebarsConfig = {
   skillSidebar: [
     {

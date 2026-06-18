@@ -1,8 +1,8 @@
 ---
-title: Skill-to-GitHub · Skill 发布工作流
-sidebar_label: Skill-to-GitHub
+title: skill-to-github
+sidebar_label: skill-to-github
 sidebar_position: 1
-description: 把本地 Skill 推送到 GitHub 仓库并自动更新 README 索引。
+description: 把本地 Skill 推送到 GitHub 仓库并自动更新 README。
 ---
 
 
