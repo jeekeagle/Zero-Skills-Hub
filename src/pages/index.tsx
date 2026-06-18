@@ -71,11 +71,73 @@ const SKILLS = [
   },
 ];
 
+// === 装饰 SVG:六边形电路 ===
+function DecorHexCircuit() {
+  return (
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g stroke="currentColor" strokeWidth="1" strokeLinejoin="round" strokeLinecap="round">
+        <path d="M100 20 L160 55 L160 125 L100 160 L40 125 L40 55 Z" />
+        <path d="M100 40 L142 64 L142 116 L100 140 L58 116 L58 64 Z" opacity="0.5" />
+        <circle cx="100" cy="20" r="3" fill="currentColor" />
+        <circle cx="160" cy="55" r="3" fill="currentColor" />
+        <circle cx="160" cy="125" r="3" fill="currentColor" />
+        <circle cx="100" cy="160" r="3" fill="currentColor" />
+        <circle cx="40" cy="125" r="3" fill="currentColor" />
+        <circle cx="40" cy="55" r="3" fill="currentColor" />
+        <circle cx="100" cy="90" r="4" fill="currentColor" />
+        <line x1="100" y1="20" x2="100" y2="86" />
+        <line x1="160" y1="55" x2="104" y2="90" />
+        <line x1="160" y1="125" x2="104" y2="90" />
+        <line x1="40" y1="55" x2="96" y2="90" />
+        <line x1="40" y1="125" x2="96" y2="90" />
+        <line x1="100" y1="94" x2="100" y2="160" />
+      </g>
+    </svg>
+  );
+}
+
+// === 装饰 SVG:网络节点 ===
+function DecorNetwork() {
+  return (
+    <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g stroke="currentColor" strokeWidth="1" strokeLinecap="round">
+        <line x1="40" y1="40" x2="110" y2="30" opacity="0.5" />
+        <line x1="110" y1="30" x2="180" y2="60" opacity="0.5" />
+        <line x1="40" y1="40" x2="80" y2="110" opacity="0.5" />
+        <line x1="80" y1="110" x2="110" y2="30" opacity="0.5" />
+        <line x1="80" y1="110" x2="180" y2="60" opacity="0.5" />
+        <line x1="80" y1="110" x2="150" y2="160" opacity="0.5" />
+        <line x1="150" y1="160" x2="180" y2="60" opacity="0.5" />
+        <line x1="40" y1="40" x2="50" y2="170" opacity="0.5" />
+        <line x1="50" y1="170" x2="80" y2="110" opacity="0.5" />
+        <line x1="50" y1="170" x2="150" y2="160" opacity="0.5" />
+      </g>
+      <g fill="currentColor">
+        <circle cx="40" cy="40" r="3.5" />
+        <circle cx="110" cy="30" r="4" />
+        <circle cx="180" cy="60" r="3" />
+        <circle cx="80" cy="110" r="4.5" />
+        <circle cx="150" cy="160" r="3.5" />
+        <circle cx="50" cy="170" r="3" />
+      </g>
+    </svg>
+  );
+}
+
 // === Hero ===
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero', styles.heroBanner)}>
+      {/* 装饰图层 */}
+      <div className={styles.heroDecor} aria-hidden="true">
+        <div className={styles.heroDecorLeft} style={{color: '#5fa3d8'}}>
+          <DecorHexCircuit />
+        </div>
+        <div className={styles.heroDecorRight} style={{color: '#c89732'}}>
+          <DecorNetwork />
+        </div>
+      </div>
       <div className="container">
         <div className={styles.eyebrow}>Zero Agent · 分析视角 · 写作工具 · 方法论</div>
         <Heading as="h1" className={clsx('hero__title', styles.title)}>
@@ -97,6 +159,8 @@ function HomepageHeader() {
           </Link>
         </div>
       </div>
+      {/* 底部淡出 */}
+      <div className={styles.heroFade} />
     </header>
   );
 }

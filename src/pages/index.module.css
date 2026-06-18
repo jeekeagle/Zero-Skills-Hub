@@ -1,101 +1,228 @@
-/* === Hero === */
+/* ====================================================================
+ * Zero-Skills-Hub · 首页样式
+ * Hero: 现代科技风格 — 深色渐变 + 点阵网格 + 浮动光晕
+ * 其余区段: 继承站点整体浅色风格
+ * ==================================================================== */
+
+/* === Hero — 现代科技风 === */
 .heroBanner {
-  padding: 5rem 0 4rem;
+  padding: 6rem 0 8rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+  /* 深色底色:从深蓝黑到深蓝,再到深蓝黑 */
+  background: linear-gradient(
+    180deg,
+    #060912 0%,
+    #0c1426 30%,
+    #111a2e 60%,
+    #0c1426 100%
+  );
+  color: #e2e8f0;
+  isolation: isolate;
+}
+
+/* 1. 点阵网格 — 通过 ::before 叠加,中心强边缘弱 */
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    /* 主点阵 */
+    radial-gradient(circle, rgba(95, 163, 216, 0.12) 1px, transparent 1.5px);
+  background-size: 32px 32px;
+  /* 中心可见,边缘淡出(径向 mask) */
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 85%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 85%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 2. 浮动光晕 — 通过 ::after,三个色光缓慢漂移 */
+.heroBanner::after {
+  content: '';
+  position: absolute;
+  inset: -10%;
   background:
-    radial-gradient(ellipse at top, var(--ifm-color-primary-lightest) 0%, transparent 50%),
-    linear-gradient(180deg, var(--ifm-background-color) 0%, var(--ifm-background-surface-color) 100%);
+    /* 主蓝光(左上) */
+    radial-gradient(circle 450px at 18% 25%, rgba(56, 114, 168, 0.55) 0%, transparent 55%),
+    /* 暗金光(右上) */
+    radial-gradient(circle 380px at 82% 30%, rgba(200, 151, 50, 0.32) 0%, transparent 55%),
+    /* 朱砂红光(中下) */
+    radial-gradient(circle 320px at 50% 90%, rgba(177, 57, 29, 0.28) 0%, transparent 60%),
+    /* 副蓝光(右下) */
+    radial-gradient(circle 280px at 90% 80%, rgba(31, 78, 121, 0.35) 0%, transparent 55%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+  animation: heroGlowDrift 16s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlowDrift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-2%, 1.5%) scale(1.06);
+  }
+  100% {
+    transform: translate(2%, -1.5%) scale(0.97);
+  }
+}
+
+/* 底部淡出到下一节 */
+.heroFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  background: linear-gradient(180deg, transparent 0%, var(--ifm-background-color) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 让 .container 内容在所有背景层之上 */
+.heroBanner .container {
+  position: relative;
+  z-index: 2;
 }
 
 @media screen and (max-width: 996px) {
-  .heroBanner { padding: 3rem 1.5rem; }
+  .heroBanner { padding: 4rem 1.5rem 6rem; }
 }
 
+/* === Hero 文字(深底配色) === */
 .eyebrow {
   display: inline-block;
-  padding: 0.3rem 0.9rem;
+  padding: 0.35rem 1rem;
   margin-bottom: 1.5rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  color: var(--ifm-color-primary);
-  border: 1px solid var(--ifm-color-primary);
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  color: #7eb6e3;
+  border: 1px solid rgba(126, 182, 227, 0.4);
   border-radius: 999px;
-  opacity: 0.9;
+  background: rgba(126, 182, 227, 0.06);
+  text-transform: uppercase;
 }
 
 .title {
-  font-size: 3.6rem;
+  font-size: 3.8rem;
   font-weight: 800;
-  margin-bottom: 0.5rem;
-  letter-spacing: 0.05em;
-  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--accent-vermilion) 100%);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.04em;
+  /* 浅色渐变文字:白 → 暗金 */
+  background: linear-gradient(
+    135deg,
+    #f1f5f9 0%,
+    #cbd5e1 35%,
+    #c89732 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 60px rgba(200, 151, 50, 0.15);
 }
 
 .subtitle {
   font-size: 1.4rem;
   margin: 1rem 0 1.5rem;
-  opacity: 0.9;
   font-style: italic;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
+  color: #94a3b8;
 }
 
 .lead {
   max-width: 720px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 2.25rem;
   font-size: 1.05rem;
-  line-height: 1.8;
-  opacity: 0.8;
+  line-height: 1.85;
+  color: #cbd5e1;
 }
 
-/* === CTA === */
+/* === CTA(深底配色) === */
 .ctaRow {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 .ctaPrimary {
   display: inline-block;
-  padding: 0.75rem 1.6rem;
-  background-color: var(--ifm-color-primary);
+  padding: 0.85rem 1.8rem;
+  background: linear-gradient(135deg, #25598a 0%, #3872a8 100%);
   color: #fff;
-  border-radius: 6px;
+  border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
-  transition: filter 0.15s ease;
+  box-shadow: 0 4px 24px rgba(56, 114, 168, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .ctaPrimary:hover {
-  filter: brightness(1.1);
   color: #fff;
   text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 32px rgba(56, 114, 168, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 .ctaSecondary {
   display: inline-block;
-  padding: 0.75rem 1.6rem;
-  border: 1px solid var(--ifm-color-primary);
-  border-radius: 6px;
+  padding: 0.85rem 1.8rem;
+  border: 1px solid rgba(226, 232, 240, 0.3);
+  border-radius: 8px;
   text-decoration: none;
-  color: var(--ifm-color-primary);
+  color: #e2e8f0;
   font-weight: 500;
-  transition: background 0.15s ease;
+  background: rgba(226, 232, 240, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.15s ease, border-color 0.15s ease;
 }
 .ctaSecondary:hover {
-  background: var(--ifm-color-primary);
+  background: rgba(226, 232, 240, 0.12);
+  border-color: rgba(226, 232, 240, 0.5);
   color: #fff;
   text-decoration: none;
 }
 
-/* === 通用区段 === */
+/* === 装饰 SVG === */
+.heroDecor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.heroDecorLeft,
+.heroDecorRight {
+  position: absolute;
+  opacity: 0.35;
+}
+.heroDecorLeft {
+  top: 12%;
+  left: 5%;
+  width: 180px;
+  height: 180px;
+  animation: heroDecorFloat 8s ease-in-out infinite;
+}
+.heroDecorRight {
+  bottom: 15%;
+  right: 5%;
+  width: 220px;
+  height: 220px;
+  animation: heroDecorFloat 10s ease-in-out infinite reverse;
+}
+@keyframes heroDecorFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(8deg); }
+}
+
+/* === 通用区段(浅色,跟站点一致) === */
 .skillsSection,
 .categoriesSection,
 .quoteSection {
   padding: 4rem 0;
+  position: relative;
 }
 
 .sectionTitle {
