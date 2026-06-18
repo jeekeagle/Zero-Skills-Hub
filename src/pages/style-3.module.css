@@ -1,0 +1,471 @@
+/* ====================================================================
+ * 样式 3 — 中国古典美(宣纸水墨 + 朱砂印章)
+ * 与样式 1(现代科技)、样式 2(编辑日出)并列
+ * ==================================================================== */
+
+/* === Hero — 宣纸水墨 === */
+.heroBanner {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0 8rem;
+  text-align: center;
+  color: #1a1a1a;
+  /* 宣纸色 + 远山渐变 */
+  background:
+    /* 远山剪影底纹(用 SVG data URI) */
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 400' preserveAspectRatio='none'><g fill='%236b7d8c' fill-opacity='0.12'><path d='M0,400 L0,250 Q100,180 200,200 Q280,220 360,170 Q440,130 520,180 Q600,220 680,170 Q760,130 860,180 Q940,220 1040,180 Q1120,150 1200,200 L1200,400 Z'/></g><g fill='%231a1a1a' fill-opacity='0.06'><path d='M0,400 L0,300 Q150,250 300,280 Q450,310 600,260 Q750,220 900,280 Q1050,320 1200,290 L1200,400 Z'/></g></svg>") bottom center / 100% 60% no-repeat,
+    /* 顶部淡墨晕染 */
+    radial-gradient(ellipse 80% 50% at 30% 0%, rgba(26, 26, 26, 0.05) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 40% at 70% 10%, rgba(139, 111, 71, 0.06) 0%, transparent 70%),
+    /* 基础:宣纸色 */
+    linear-gradient(180deg, #f9f3e3 0%, #f5efe1 50%, #f0e8d6 100%);
+  isolation: isolate;
+}
+
+/* 朱砂印章装饰 — 右上角 */
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 8%;
+  right: 8%;
+  width: 90px;
+  height: 90px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(192, 57, 43, 0.18) 0%, transparent 70%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 90'><g transform='rotate(-6 45 45)'><rect x='6' y='6' width='78' height='78' fill='%23c0392b' fill-opacity='0.85'/><rect x='6' y='6' width='78' height='78' fill='none' stroke='%23c0392b' stroke-width='2'/><rect x='12' y='12' width='66' height='66' fill='none' stroke='%23f9f3e3' stroke-width='1.5'/><text x='45' y='62' text-anchor='middle' font-family='serif' font-size='40' font-weight='900' fill='%23f9f3e3'>技</text></g></svg>") center / contain no-repeat;
+  opacity: 0.92;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 左下小印章 — 辅助 */
+.heroBanner::after {
+  content: '';
+  position: absolute;
+  bottom: 12%;
+  left: 7%;
+  width: 50px;
+  height: 50px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><g transform='rotate(4 25 25)'><rect x='4' y='4' width='42' height='42' fill='%23c0392b' fill-opacity='0.78'/><rect x='4' y='4' width='42' height='42' fill='none' stroke='%23c0392b' stroke-width='1.5'/><text x='25' y='35' text-anchor='middle' font-family='serif' font-size='22' font-weight='900' fill='%23f9f3e3'>学</text></g></svg>") center / contain no-repeat;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heroBanner .container {
+  position: relative;
+  z-index: 2;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 1.5rem 6rem;
+  }
+  .heroBanner::before { width: 70px; height: 70px; top: 4%; right: 4%; }
+  .heroBanner::after { display: none; }
+}
+
+/* === Hero 文字 === */
+.eyebrow {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.35em;
+  color: #8b6f47;
+  border-top: 1px solid rgba(139, 111, 71, 0.4);
+  border-bottom: 1px solid rgba(139, 111, 71, 0.4);
+  background: transparent;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: 0.15em;
+  color: #1a1a1a;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', 'Source Han Serif SC', serif;
+  line-height: 1.2;
+}
+
+.titleDecoration {
+  display: inline-block;
+  margin-left: 0.5em;
+  color: #c0392b;
+  font-weight: 600;
+  font-size: 0.55em;
+  vertical-align: 0.5em;
+  letter-spacing: 0.05em;
+  /* 印章风:加粗 + 朱红 */
+}
+
+.subtitle {
+  font-size: 1.35rem;
+  margin: 1.5rem 0 1.75rem;
+  letter-spacing: 0.15em;
+  color: #5a4a3a;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+  font-weight: 500;
+}
+
+.subtitle::before,
+.subtitle::after {
+  content: '·';
+  margin: 0 0.75em;
+  color: #c0392b;
+  font-weight: 700;
+}
+
+.lead {
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.02rem;
+  line-height: 2;
+  color: #3a2e22;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+}
+
+/* === CTA — 朱砂印章按钮 === */
+.ctaRow {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ctaPrimary {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  background: #c0392b;
+  color: #f9f3e3;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+  box-shadow: 0 2px 0 #8b1f15, 0 4px 12px rgba(192, 57, 43, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.ctaPrimary:hover {
+  color: #f9f3e3;
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 0 #8b1f15, 0 6px 16px rgba(192, 57, 43, 0.4);
+}
+.ctaSecondary {
+  display: inline-block;
+  padding: 0.85rem 2rem;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  background: transparent;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.ctaSecondary:hover {
+  background: #1a1a1a;
+  color: #f9f3e3;
+  text-decoration: none;
+}
+
+/* === 样式切换链接 === */
+.styleSwitcher {
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  color: #8b6f47;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+}
+.styleSwitcher a {
+  color: #c0392b;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px dashed rgba(192, 57, 43, 0.4);
+  padding-bottom: 1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.styleSwitcher a:hover {
+  color: #8b1f15;
+  border-bottom-color: rgba(139, 31, 21, 0.7);
+}
+
+/* === 通用区段 === */
+.skillsSection,
+.categoriesSection,
+.quoteSection {
+  padding: 4.5rem 0;
+  position: relative;
+}
+
+/* 区段标题加印章装饰 */
+.sectionTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: #1a1a1a;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitleWrap {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitleSeal {
+  display: inline-block;
+  margin-left: 0.75rem;
+  vertical-align: middle;
+  width: 36px;
+  height: 36px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g transform='rotate(-4 20 20)'><rect x='3' y='3' width='34' height='34' fill='%23c0392b' fill-opacity='0.85'/><rect x='3' y='3' width='34' height='34' fill='none' stroke='%23c0392b' stroke-width='1.5'/></g></svg>") center / contain no-repeat;
+  position: relative;
+  top: -4px;
+}
+
+.sectionLead {
+  text-align: center;
+  font-size: 1rem;
+  color: #5a4a3a;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+  letter-spacing: 0.1em;
+}
+
+/* === Skill 卡片(宣纸 + 朱砂印章)=== */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.skillCard {
+  display: block;
+  padding: 2rem 1.75rem;
+  background: #fdf8ee;
+  border: 1px solid rgba(139, 111, 71, 0.25);
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  /* 仿宣纸的细微纹理 */
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 4px 12px rgba(139, 111, 71, 0.06);
+}
+.skillCard::before {
+  /* 卡片左上角小印章 */
+  content: '';
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><g transform='rotate(-4 16 16)'><rect x='2' y='2' width='28' height='28' fill='%23c0392b' fill-opacity='0.88'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%23c0392b' stroke-width='1'/></g></svg>") center / contain no-repeat;
+  opacity: 0.9;
+}
+.skillCard:hover {
+  text-decoration: none;
+  color: inherit;
+  transform: translateY(-4px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 12px 28px rgba(139, 111, 71, 0.15);
+}
+
+.skillSeal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: 1rem;
+  background: #c0392b;
+  color: #f9f3e3;
+  border-radius: 4px;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  transform: rotate(-3deg);
+  box-shadow: 0 2px 0 #8b1f15, 0 3px 8px rgba(192, 57, 43, 0.25);
+}
+
+.skillCategory {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.72rem;
+  color: #8b6f47;
+  border-top: 1px solid rgba(139, 111, 71, 0.5);
+  border-bottom: 1px solid rgba(139, 111, 71, 0.5);
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+}
+
+.skillTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+  color: #1a1a1a;
+  letter-spacing: 0.1em;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+}
+
+.skillDesc {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: #3a2e22;
+  margin: 0;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+}
+
+/* === 类别(卷轴式) === */
+.categoriesList {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.categoryRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  background: #fdf8ee;
+  border: 1px solid rgba(139, 111, 71, 0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.categoryRow::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 3px;
+  background: #c0392b;
+  border-radius: 2px;
+}
+.categoryRow:hover {
+  text-decoration: none;
+  color: inherit;
+  background: #f9f3e3;
+  transform: translateX(6px);
+  box-shadow: 0 4px 16px rgba(139, 111, 71, 0.12);
+}
+
+.categoryRowSeal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  background: #c0392b;
+  color: #f9f3e3;
+  border-radius: 4px;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  transform: rotate(-3deg);
+  box-shadow: 0 2px 0 #8b1f15;
+}
+
+.categoryRowBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.categoryRowTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1a1a1a;
+  letter-spacing: 0.1em;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+}
+.categoryRowDesc {
+  font-size: 0.88rem;
+  color: #5a4a3a;
+  margin: 0.35rem 0 0;
+  line-height: 1.7;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+}
+
+.categoryRowLabel {
+  font-size: 0.72rem;
+  color: #c0392b;
+  border: 1px solid #c0392b;
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+}
+
+/* === 引文(卷轴) === */
+.quoteSection {
+  background: linear-gradient(180deg, #f0e8d6 0%, #e8dfc8 100%);
+  position: relative;
+}
+.quoteScroll {
+  max-width: 760px;
+  margin: 2rem auto;
+  padding: 2.5rem 3rem;
+  background: #fdf8ee;
+  border-left: 4px solid #1a1a1a;
+  border-right: 4px solid #1a1a1a;
+  text-align: center;
+  font-size: 1.15rem;
+  line-height: 2;
+  color: #1a1a1a;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+  position: relative;
+  box-shadow:
+    0 2px 0 rgba(139, 111, 71, 0.1),
+    0 4px 16px rgba(139, 111, 71, 0.08);
+}
+.quoteScroll::before,
+.quoteScroll::after {
+  /* 卷轴上下装饰横条 */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background:
+    linear-gradient(90deg, #8b6f47 0%, #6b5537 50%, #8b6f47 100%);
+}
+.quoteScroll::before { top: -4px; }
+.quoteScroll::after { bottom: -4px; }
+
+.quote p {
+  margin: 0 0 1rem;
+}
+.quote cite {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-style: normal;
+  color: #8b6f47;
+  margin-top: 0.75rem;
+  letter-spacing: 0.3em;
+  padding: 0.3rem 1rem;
+  border-top: 1px solid rgba(139, 111, 71, 0.4);
+  border-bottom: 1px solid rgba(139, 111, 71, 0.4);
+  font-weight: 500;
+}
