@@ -61,16 +61,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: main
           fetch-depth: 0
-      - name: Debug - show build target file
-        run: |
-          echo 'Current SHA:'
-          git rev-parse HEAD
-          echo 'Line 21 of taxonomy-perspective.md:'
-          sed -n '21p' docs/perspective/taxonomy-perspective.md
-          echo 'Hex of line 21 char 2:'
-          sed -n '21p' docs/perspective/taxonomy-perspective.md | head -c 2 | xxd
 
       - uses: actions/setup-node@v4
         with:

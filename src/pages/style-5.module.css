@@ -1,0 +1,328 @@
+/* ====================================================================
+ * 样式 5 — 新拟物 Neumorphism
+ * 单色柔和 + 同色阴影凸起凹陷 + 极简
+ * ==================================================================== */
+
+:root {
+  --n-bg: #e0e5ec;
+  --n-shadow-light: #ffffff;
+  --n-shadow-dark: #a3b1c6;
+  --n-text: #4a5568;
+  --n-text-light: #718096;
+  --n-accent: #6b7c93;
+}
+
+* { -webkit-font-smoothing: antialiased; }
+
+.heroBanner {
+  position: relative;
+  padding: 6rem 0 8rem;
+  text-align: center;
+  color: var(--n-text);
+  background: var(--n-bg);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner { padding: 4rem 1rem 5rem; }
+}
+
+/* === Hero === */
+.eyebrow {
+  display: inline-block;
+  padding: 0.55rem 1.4rem;
+  margin-bottom: 2rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: var(--n-text-light);
+  background: var(--n-bg);
+  border-radius: 50px;
+  box-shadow:
+    inset 4px 4px 8px var(--n-shadow-dark),
+    inset -4px -4px 8px var(--n-shadow-light);
+}
+
+.title {
+  font-size: 4.2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+  color: var(--n-text);
+  text-shadow: 1px 1px 1px var(--n-shadow-light);
+  line-height: 1.15;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  margin: 0 auto 2rem;
+  font-weight: 500;
+  color: var(--n-text-light);
+  max-width: 640px;
+}
+
+.lead {
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--n-text-light);
+}
+
+/* === CTA(凸起按钮) === */
+.ctaRow {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ctaPrimary {
+  display: inline-block;
+  padding: 1rem 2.25rem;
+  background: var(--n-bg);
+  color: var(--n-accent);
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  box-shadow:
+    8px 8px 16px var(--n-shadow-dark),
+    -8px -8px 16px var(--n-shadow-light);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.ctaPrimary:hover {
+  color: var(--n-accent);
+  text-decoration: none;
+  box-shadow:
+    inset 4px 4px 8px var(--n-shadow-dark),
+    inset -4px -4px 8px var(--n-shadow-light);
+}
+.ctaSecondary {
+  display: inline-block;
+  padding: 1rem 2.25rem;
+  background: var(--n-bg);
+  color: var(--n-text-light);
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  box-shadow:
+    inset 4px 4px 8px var(--n-shadow-dark),
+    inset -4px -4px 8px var(--n-shadow-light);
+  transition: box-shadow 0.2s ease;
+}
+.ctaSecondary:hover {
+  color: var(--n-text);
+  text-decoration: none;
+  box-shadow:
+    6px 6px 12px var(--n-shadow-dark),
+    -6px -6px 12px var(--n-shadow-light);
+}
+
+.styleSwitcher {
+  margin-top: 3rem;
+  font-size: 0.82rem;
+  color: var(--n-text-light);
+}
+.styleSwitcher a {
+  color: var(--n-accent);
+  text-decoration: none;
+  margin-left: 0.5em;
+  border-bottom: 1px solid var(--n-shadow-dark);
+  padding-bottom: 1px;
+}
+.styleSwitcher a:hover { border-bottom-color: var(--n-accent); }
+
+/* === 通用区段 === */
+.skillsSection, .categoriesSection, .quoteSection {
+  padding: 5rem 0;
+  background: var(--n-bg);
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--n-text);
+  letter-spacing: 0.05em;
+}
+.sectionLead {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--n-text-light);
+  margin: 0 0 3.5rem;
+}
+
+/* === Skill 卡片(凸起) === */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.skillCard {
+  display: block;
+  position: relative;
+  padding: 2.5rem 2rem;
+  background: var(--n-bg);
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--n-text);
+  box-shadow:
+    12px 12px 24px var(--n-shadow-dark),
+    -12px -12px 24px var(--n-shadow-light);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.skillCard:hover {
+  color: var(--n-text);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow:
+    16px 16px 32px var(--n-shadow-dark),
+    -16px -16px 32px var(--n-shadow-light);
+}
+
+.skillIndex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--n-bg);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--n-text-light);
+  margin-bottom: 1.25rem;
+  box-shadow:
+    inset 4px 4px 8px var(--n-shadow-dark),
+    inset -4px -4px 8px var(--n-shadow-light);
+}
+.skillCategory {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.72rem;
+  color: var(--n-text-light);
+  background: var(--n-bg);
+  border-radius: 30px;
+  margin-bottom: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  box-shadow:
+    inset 2px 2px 4px var(--n-shadow-dark),
+    inset -2px -2px 4px var(--n-shadow-light);
+}
+.skillTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+  color: var(--n-text);
+}
+.skillDesc {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--n-text-light);
+  margin: 0 0 1.25rem;
+}
+.skillLink {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--n-accent);
+  background: var(--n-bg);
+  border-radius: 30px;
+  box-shadow:
+    4px 4px 8px var(--n-shadow-dark),
+    -4px -4px 8px var(--n-shadow-light);
+}
+
+/* === 类别(凹陷) === */
+.categoriesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.categoryCard {
+  display: block;
+  padding: 2.5rem 2rem;
+  background: var(--n-bg);
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--n-text);
+  box-shadow:
+    inset 8px 8px 16px var(--n-shadow-dark),
+    inset -8px -8px 16px var(--n-shadow-light);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.categoryCard:hover {
+  color: var(--n-text);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow:
+    inset 6px 6px 12px var(--n-shadow-dark),
+    inset -6px -6px 12px var(--n-shadow-light),
+    0 0 0 2px rgba(107, 124, 147, 0.05);
+}
+.categoryLabel {
+  display: inline-block;
+  padding: 0.35rem 0.95rem;
+  font-size: 0.72rem;
+  color: var(--n-text);
+  background: var(--n-bg);
+  border-radius: 30px;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  box-shadow:
+    3px 3px 6px var(--n-shadow-dark),
+    -3px -3px 6px var(--n-shadow-light);
+}
+.categoryTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+  color: var(--n-text);
+}
+.categoryDesc {
+  font-size: 0.9rem;
+  color: var(--n-text-light);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* === 引文 === */
+.quoteGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.quote {
+  padding: 2.5rem 2rem;
+  background: var(--n-bg);
+  border-radius: 30px;
+  font-size: 1rem;
+  line-height: 1.85;
+  margin: 0;
+  color: var(--n-text);
+  box-shadow:
+    inset 6px 6px 12px var(--n-shadow-dark),
+    inset -6px -6px 12px var(--n-shadow-light);
+}
+.quote p { margin: 0 0 1.25rem; }
+.quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.78rem;
+  color: var(--n-text-light);
+  letter-spacing: 0.2em;
+  font-weight: 600;
+}

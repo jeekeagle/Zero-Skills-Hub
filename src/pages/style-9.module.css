@@ -1,0 +1,430 @@
+/* ====================================================================
+ * 样式 9 — 蒸汽波 Vaporwave
+ * 紫粉渐变 + 透视网格 + 复古 80s/90s 元素
+ * ==================================================================== */
+
+:root {
+  --v-bg-1: #1a0033;
+  --v-bg-2: #4a0e5c;
+  --v-pink: #ff71ce;
+  --v-purple: #b967ff;
+  --v-cyan: #01cdfe;
+  --v-yellow: #fff95e;
+  --v-orange: #ff9d00;
+  --v-teal: #05ffa1;
+}
+
+.heroBanner {
+  position: relative;
+  padding: 7rem 0 9rem;
+  text-align: center;
+  color: #fff;
+  background:
+    radial-gradient(circle at 50% 80%, var(--v-pink) 0%, transparent 50%),
+    radial-gradient(circle at 20% 30%, var(--v-purple) 0%, transparent 50%),
+    radial-gradient(circle at 80% 30%, var(--v-cyan) 0%, transparent 40%),
+    linear-gradient(180deg, var(--v-bg-1) 0%, var(--v-bg-2) 100%);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* 太阳 */
+.sun {
+  position: absolute;
+  bottom: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--v-yellow) 0%, var(--v-orange) 50%, var(--v-pink) 100%);
+  z-index: 0;
+  opacity: 0.85;
+  mask-image: linear-gradient(180deg, black 0%, black 50%, transparent 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, black 0%, black 50%, transparent 50%, transparent 100%);
+}
+/* 太阳的横向条纹 */
+.sun::before {
+  content: '';
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 8px,
+      var(--v-bg-1) 8px,
+      var(--v-bg-1) 12px
+    );
+}
+
+/* 透视网格地板 */
+.gridFloor {
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  right: -50%;
+  height: 50%;
+  background-image:
+    linear-gradient(var(--v-pink) 2px, transparent 2px),
+    linear-gradient(90deg, var(--v-pink) 2px, transparent 2px);
+  background-size: 80px 80px;
+  transform: perspective(500px) rotateX(60deg);
+  opacity: 0.45;
+  z-index: 1;
+  mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 30%, black 100%);
+}
+
+.heroBanner .container {
+  position: relative;
+  z-index: 2;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner { padding: 4rem 1rem 5rem; }
+  .sun { width: 250px; height: 250px; }
+}
+
+/* === Hero === */
+.eyebrow {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--v-cyan);
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid var(--v-cyan);
+  text-shadow: 0 0 10px var(--v-cyan);
+  box-shadow: 0 0 20px rgba(1, 205, 254, 0.4), inset 0 0 20px rgba(1, 205, 254, 0.1);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.title {
+  font-size: 5.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-family: 'Inter', 'Arial Black', sans-serif;
+  text-transform: uppercase;
+  position: relative;
+}
+.titleMain {
+  position: relative;
+  background: linear-gradient(180deg, var(--v-cyan) 0%, var(--v-purple) 50%, var(--v-pink) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.titleShadow {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  color: var(--v-pink);
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(2px);
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  margin: 1.5rem 0 2rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--v-yellow);
+  text-shadow: 0 0 16px rgba(255, 249, 94, 0.5);
+}
+
+.lead {
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  font-size: 1rem;
+  line-height: 2;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 113, 206, 0.4);
+}
+
+/* === CTA === */
+.ctaRow {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ctaPrimary {
+  display: inline-block;
+  padding: 0.95rem 2.5rem;
+  background: linear-gradient(135deg, var(--v-pink) 0%, var(--v-purple) 100%);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  font-family: 'JetBrains Mono', monospace;
+  border: 2px solid var(--v-pink);
+  text-transform: uppercase;
+  box-shadow: 0 0 24px rgba(255, 113, 206, 0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 0 32px rgba(255, 113, 206, 0.9);
+}
+.ctaSecondary {
+  display: inline-block;
+  padding: 0.95rem 2.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--v-cyan);
+  border: 2px solid var(--v-cyan);
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  box-shadow: 0 0 16px rgba(1, 205, 254, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.ctaSecondary:hover {
+  transform: translateY(-2px);
+  background: rgba(1, 205, 254, 0.1);
+  color: var(--v-cyan);
+  text-decoration: none;
+  box-shadow: 0 0 24px rgba(1, 205, 254, 0.7);
+}
+
+.styleSwitcher {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  color: var(--v-cyan);
+  letter-spacing: 0.25em;
+  font-family: 'JetBrains Mono', monospace;
+}
+.styleSwitcher a {
+  color: var(--v-pink);
+  text-decoration: none;
+  margin-left: 1em;
+  border-bottom: 1px dashed var(--v-pink);
+  padding-bottom: 1px;
+}
+
+/* === 通用区段 === */
+.skillsSection, .categoriesSection, .quoteSection {
+  padding: 5rem 0;
+  background:
+    linear-gradient(180deg, var(--v-bg-2) 0%, var(--v-bg-1) 100%);
+  position: relative;
+}
+.skillsSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--v-pink), transparent);
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.15em;
+  color: var(--v-cyan);
+  text-shadow: 0 0 16px rgba(1, 205, 254, 0.5);
+  font-family: 'JetBrains Mono', monospace;
+}
+.sectionLead {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--v-pink);
+  margin: 0 0 3rem;
+  letter-spacing: 0.25em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* === Skill 卡片 === */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.skillCard {
+  display: block;
+  position: relative;
+  padding: 2rem;
+  background:
+    linear-gradient(135deg, rgba(185, 103, 255, 0.15) 0%, rgba(1, 205, 254, 0.1) 100%);
+  border: 2px solid var(--v-pink);
+  color: #fff;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 24px rgba(255, 113, 206, 0.4), inset 0 0 24px rgba(185, 103, 255, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.skillCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--v-cyan);
+  box-shadow: 0 0 32px rgba(1, 205, 254, 0.6), inset 0 0 24px rgba(1, 205, 254, 0.1);
+  text-decoration: none;
+  color: #fff;
+}
+.skillNumber {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--v-yellow);
+  letter-spacing: 0.2em;
+  margin-bottom: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+.skillCategory {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.72rem;
+  color: var(--v-bg-1);
+  background: var(--v-cyan);
+  margin-bottom: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+.skillTitle {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin: 0 0 0.6rem;
+  color: #fff;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, var(--v-cyan) 0%, var(--v-pink) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.skillDesc {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: #ddd;
+  margin: 0 0 1.25rem;
+}
+.skillFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--v-purple);
+}
+.skillTag {
+  font-size: 0.78rem;
+  color: var(--v-yellow);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.1em;
+}
+.skillLink {
+  font-size: 0.85rem;
+  color: var(--v-pink);
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* === 类别 === */
+.categoriesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.categoryCard {
+  display: block;
+  padding: 2rem;
+  background:
+    linear-gradient(135deg, rgba(255, 157, 0, 0.15) 0%, rgba(255, 113, 206, 0.1) 100%);
+  border: 2px solid var(--v-yellow);
+  color: #fff;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 24px rgba(255, 249, 94, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.categoryCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--v-teal);
+  box-shadow: 0 0 32px rgba(5, 255, 161, 0.5);
+  text-decoration: none;
+  color: #fff;
+}
+.categoryNumber {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--v-teal);
+  letter-spacing: 0.3em;
+  margin-bottom: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+}
+.categoryLabel {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.72rem;
+  color: var(--v-bg-1);
+  background: var(--v-yellow);
+  margin-bottom: 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+.categoryTitle {
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin: 0 0 0.5rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--v-yellow) 0%, var(--v-pink) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.categoryDesc {
+  font-size: 0.9rem;
+  color: #ddd;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* === 引文 === */
+.quoteGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.quote {
+  padding: 2rem;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(0, 0, 0, 0.4);
+  border-left: 4px solid var(--v-cyan);
+  border-right: 4px solid var(--v-pink);
+}
+.quote p { margin: 0 0 1rem; }
+.quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.78rem;
+  color: var(--v-yellow);
+  letter-spacing: 0.15em;
+}

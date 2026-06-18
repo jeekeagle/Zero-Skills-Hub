@@ -1,0 +1,357 @@
+/* ====================================================================
+ * 样式 13 — 北欧极简 Nordic Minimal
+ * 白底 + 细线 + 大量留白 + 柔和粉彩
+ * ==================================================================== */
+
+:root {
+  --n-bg: #fafafa;
+  --n-paper: #ffffff;
+  --n-ink: #2d2d2d;
+  --n-gray: #6b6b6b;
+  --n-light: #e8e8e8;
+  --n-pink: #e8b4b8;
+  --n-blue: #b8d8e8;
+  --n-sand: #d4c5a9;
+  --n-sage: #a8c3a0;
+}
+
+.heroBanner {
+  position: relative;
+  padding: 8rem 0 10rem;
+  text-align: center;
+  color: var(--n-ink);
+  background: var(--n-bg);
+  overflow: hidden;
+}
+
+/* 极简装饰 */
+.decoSquare {
+  position: absolute;
+  top: 12%;
+  left: 8%;
+  width: 80px;
+  height: 80px;
+  background: var(--n-pink);
+  border-radius: 4px;
+  opacity: 0.6;
+  z-index: 0;
+  transform: rotate(-8deg);
+}
+.decoCircle {
+  position: absolute;
+  top: 22%;
+  right: 10%;
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--n-gray);
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.4;
+}
+.decoLine {
+  position: absolute;
+  bottom: 18%;
+  left: 15%;
+  width: 120px;
+  height: 1px;
+  background: var(--n-gray);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.heroBanner .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner { padding: 5rem 1rem 6rem; }
+  .decoSquare, .decoCircle, .decoLine { display: none; }
+}
+
+/* === Hero === */
+.eyebrow {
+  display: inline-block;
+  padding: 0 0 0.6rem;
+  margin-bottom: 2.5rem;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  color: var(--n-gray);
+  border-bottom: 1px solid var(--n-light);
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 4.8rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  letter-spacing: -0.03em;
+  color: var(--n-ink);
+  line-height: 1.1;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Source Han Serif', Georgia, serif;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin: 0 auto 2.5rem;
+  font-weight: 400;
+  color: var(--n-gray);
+  max-width: 580px;
+  line-height: 1.6;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Source Han Serif', Georgia, serif;
+}
+
+.lead {
+  max-width: 540px;
+  margin: 0 auto 3.5rem;
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--n-gray);
+}
+
+.ctaRow {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ctaPrimary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--n-ink);
+  color: var(--n-bg);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: background 0.2s ease;
+}
+.ctaPrimary:hover { background: var(--n-sage); color: var(--n-bg); text-decoration: none; }
+.ctaSecondary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--n-ink);
+  border: 1px solid var(--n-ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-left: -1px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.ctaSecondary:hover { background: var(--n-ink); color: var(--n-bg); text-decoration: none; }
+
+.styleSwitcher {
+  margin-top: 3.5rem;
+  font-size: 0.78rem;
+  color: var(--n-gray);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.styleSwitcher a {
+  color: var(--n-ink);
+  text-decoration: none;
+  margin-left: 0.5em;
+  border-bottom: 1px solid var(--n-ink);
+  padding-bottom: 1px;
+}
+.styleSwitcher a:hover { color: var(--n-pink); border-bottom-color: var(--n-pink); }
+
+/* === 通用区段 === */
+.skillsSection, .categoriesSection, .quoteSection {
+  padding: 6rem 0;
+  background: var(--n-bg);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto 4rem;
+}
+.sectionNumber {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--n-pink);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+  padding-top: 0.5rem;
+}
+.sectionTitle {
+  font-size: 2.2rem;
+  font-weight: 300;
+  margin: 0 0 0.5rem;
+  color: var(--n-ink);
+  letter-spacing: -0.02em;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Source Han Serif', Georgia, serif;
+}
+.sectionLead {
+  font-size: 0.92rem;
+  color: var(--n-gray);
+  margin: 0;
+}
+
+/* === Skill 列表 === */
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  border-top: 1px solid var(--n-light);
+}
+.skillCard {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2.5rem 1rem;
+  background: transparent;
+  border-bottom: 1px solid var(--n-light);
+  text-decoration: none;
+  color: var(--n-ink);
+  transition: padding 0.3s ease, background 0.3s ease;
+}
+.skillCard:hover {
+  text-decoration: none;
+  color: var(--n-ink);
+  background: var(--n-paper);
+  padding-left: 2rem;
+}
+.skillLeft {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 100px;
+}
+.skillNumber {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--n-pink);
+  font-family: 'LXGW WenKai', '霞鹜文楷', Georgia, serif;
+  margin-bottom: 0.4rem;
+}
+.skillCategory {
+  font-size: 0.7rem;
+  color: var(--n-gray);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.skillBody {
+  flex: 1;
+  min-width: 0;
+}
+.skillTitle {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0 0 0.4rem;
+  color: var(--n-ink);
+  letter-spacing: -0.01em;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Source Han Serif', Georgia, serif;
+}
+.skillDesc {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--n-gray);
+  margin: 0;
+}
+.skillArrow {
+  font-size: 1.4rem;
+  color: var(--n-light);
+  flex-shrink: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.skillCard:hover .skillArrow {
+  color: var(--n-sage);
+  transform: translateX(6px);
+}
+
+/* === 类别 === */
+.categoriesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  border-top: 1px solid var(--n-light);
+}
+.categoryCard {
+  display: block;
+  padding: 2.5rem 1rem;
+  text-decoration: none;
+  color: var(--n-ink);
+  border-bottom: 1px solid var(--n-light);
+  transition: padding 0.3s ease, background 0.3s ease;
+}
+.categoryCard:hover {
+  text-decoration: none;
+  color: var(--n-ink);
+  background: var(--n-paper);
+  padding-left: 2rem;
+}
+.categoryMeta {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+.categoryNumber {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--n-pink);
+  font-family: 'LXGW WenKai', '霞鹜文楷', Georgia, serif;
+}
+.categoryLabel {
+  font-size: 0.7rem;
+  color: var(--n-gray);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.categoryTitle {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+  color: var(--n-ink);
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Source Han Serif', Georgia, serif;
+}
+.categoryDesc {
+  font-size: 0.9rem;
+  color: var(--n-gray);
+  line-height: 1.75;
+  margin: 0;
+  max-width: 600px;
+}
+
+/* === 引文 === */
+.quoteGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.quote {
+  margin: 0;
+  padding: 2rem 0;
+  border-top: 1px solid var(--n-light);
+  border-bottom: 1px solid var(--n-light);
+  font-size: 1.15rem;
+  line-height: 1.85;
+  color: var(--n-ink);
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Source Han Serif', Georgia, serif;
+}
+.quote p { margin: 0 0 1rem; font-weight: 400; font-style: italic; }
+.quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.78rem;
+  color: var(--n-gray);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,406 @@
+/* ====================================================================
+ * 样式 4 — 孟菲斯 Memphis(1985 后现代)
+ * 鲜艳色块 + 几何形状 + 错位阴影 + 锯齿波点
+ * ==================================================================== */
+
+:root {
+  --m-red: #ff3b30;
+  --m-yellow: #ffbd2e;
+  --m-blue: #007aff;
+  --m-black: #1a1a1a;
+  --m-cream: #fff8e7;
+  --m-pink: #ff85b3;
+  --m-green: #34c759;
+}
+
+/* === Hero === */
+.heroBanner {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0 8rem;
+  text-align: center;
+  color: var(--m-black);
+  background: var(--m-cream);
+  isolation: isolate;
+}
+
+/* 装饰:黄圆(左上) */
+.decoYellow {
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 200px;
+  height: 200px;
+  background: var(--m-yellow);
+  border-radius: 50%;
+  z-index: 0;
+  border: 4px solid var(--m-black);
+}
+/* 装饰:蓝方块(左下) */
+.decoBlue {
+  position: absolute;
+  bottom: 40px;
+  left: 6%;
+  width: 90px;
+  height: 90px;
+  background: var(--m-blue);
+  border: 4px solid var(--m-black);
+  z-index: 0;
+  transform: rotate(-12deg);
+}
+/* 装饰:波点(右上) */
+.decoDots {
+  position: absolute;
+  top: 30px;
+  right: 4%;
+  width: 180px;
+  height: 120px;
+  background-image:
+    radial-gradient(circle, var(--m-red) 30%, transparent 35%),
+    radial-gradient(circle, var(--m-black) 30%, transparent 35%);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  z-index: 0;
+  opacity: 0.85;
+  transform: rotate(15deg);
+}
+/* 装饰:黑三角(中上) */
+.decoTriangle {
+  position: absolute;
+  top: 80px;
+  left: 35%;
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 60px solid var(--m-red);
+  transform: rotate(20deg);
+  z-index: 0;
+}
+/* 装饰:zigzag(右下) */
+.decoZigzag {
+  position: absolute;
+  bottom: 80px;
+  right: 8%;
+  width: 140px;
+  height: 30px;
+  background:
+    linear-gradient(135deg, var(--m-pink) 25%, transparent 25%) 0 0 / 20px 20px,
+    linear-gradient(225deg, var(--m-pink) 25%, transparent 25%) 0 0 / 20px 20px,
+    linear-gradient(315deg, var(--m-pink) 25%, transparent 25%) 10px 0 / 20px 20px,
+    linear-gradient(45deg, var(--m-pink) 25%, transparent 25%) 10px 0 / 20px 20px;
+  border: 3px solid var(--m-black);
+  z-index: 0;
+  transform: rotate(-8deg);
+}
+
+.heroBanner .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner { padding: 4rem 1rem 5rem; }
+  .decoYellow, .decoDots, .decoTriangle, .decoBlue, .decoZigzag { display: none; }
+}
+
+/* === Hero 文字 === */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--m-black);
+  background: var(--m-yellow);
+  border: 3px solid var(--m-black);
+  box-shadow: 4px 4px 0 var(--m-black);
+}
+.eyebrowDot {
+  width: 8px;
+  height: 8px;
+  background: var(--m-red);
+  border-radius: 50%;
+  border: 2px solid var(--m-black);
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.titleA {
+  display: inline-block;
+  background: var(--m-red);
+  color: var(--m-cream);
+  padding: 0 0.2em;
+  border: 4px solid var(--m-black);
+  box-shadow: 8px 8px 0 var(--m-black);
+  transform: rotate(-2deg);
+}
+.titleB {
+  display: inline-block;
+  margin-left: 0.15em;
+  color: var(--m-black);
+  transform: rotate(2deg);
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  margin: 2rem 0 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--m-black);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.subtitle::before, .subtitle::after {
+  content: '★';
+  margin: 0 0.4em;
+  color: var(--m-red);
+}
+
+.lead {
+  max-width: 680px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--m-black);
+}
+
+/* === CTA === */
+.ctaRow {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ctaPrimary {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: var(--m-black);
+  color: var(--m-cream);
+  border: 3px solid var(--m-black);
+  box-shadow: 5px 5px 0 var(--m-red);
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.ctaPrimary:hover {
+  color: var(--m-cream);
+  text-decoration: none;
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--m-red);
+}
+.ctaSecondary {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background: var(--m-cream);
+  color: var(--m-black);
+  border: 3px solid var(--m-black);
+  box-shadow: 5px 5px 0 var(--m-blue);
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.ctaSecondary:hover {
+  color: var(--m-black);
+  text-decoration: none;
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--m-blue);
+}
+
+.styleSwitcher {
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--m-black);
+}
+.styleSwitcher a {
+  color: var(--m-red);
+  text-decoration: none;
+  border-bottom: 2px dashed var(--m-red);
+  padding-bottom: 1px;
+  margin-left: 0.5em;
+}
+.styleSwitcher a:hover { color: var(--m-blue); border-bottom-color: var(--m-blue); }
+
+/* === 通用区段 === */
+.skillsSection, .categoriesSection, .quoteSection {
+  padding: 5rem 0;
+  position: relative;
+}
+.skillsSection { background: var(--m-cream); }
+.categoriesSection { background: var(--m-black); color: var(--m-cream); }
+.quoteSection { background: var(--m-yellow); }
+
+.sectionTitle {
+  font-size: 2.6rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  color: inherit;
+  text-transform: uppercase;
+}
+.titleShape {
+  display: inline-block;
+  margin-right: 0.5rem;
+  color: var(--m-red);
+  font-size: 0.9em;
+}
+.sectionLead {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
+  color: inherit;
+  opacity: 0.75;
+}
+
+/* === Skill 卡片(错位阴影) === */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.skillCard {
+  display: block;
+  position: relative;
+  padding: 2rem;
+  background: var(--m-cream);
+  color: var(--m-black);
+  border: 4px solid var(--m-black);
+  box-shadow: 10px 10px 0 var(--m-red);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.skillCardShift {
+  box-shadow: 10px 10px 0 var(--m-blue);
+}
+.skillCard:hover {
+  color: var(--m-black);
+  text-decoration: none;
+  transform: translate(3px, 3px);
+  box-shadow: 7px 7px 0 var(--m-red);
+}
+.skillCardShift:hover {
+  box-shadow: 7px 7px 0 var(--m-blue);
+}
+.skillNumber {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--m-yellow);
+  -webkit-text-stroke: 2px var(--m-black);
+  margin-bottom: 0.5rem;
+}
+.skillCategory {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  background: var(--m-yellow);
+  color: var(--m-black);
+  border: 2px solid var(--m-black);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.7rem;
+  text-transform: uppercase;
+}
+.skillTitle {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin: 0 0 0.6rem;
+  color: var(--m-black);
+}
+.skillDesc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--m-black);
+  margin: 0 0 1rem;
+}
+.skillArrow {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--m-red);
+  text-align: right;
+}
+
+/* === 类别 === */
+.categoriesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.categoryCard {
+  display: block;
+  padding: 2rem;
+  color: var(--m-black);
+  border: 4px solid var(--m-black);
+  text-decoration: none;
+  transition: transform 0.15s ease;
+}
+.categoryYellow { background: var(--m-yellow); }
+.categoryBlue { background: var(--m-blue); color: var(--m-cream); }
+.categoryCard:hover { transform: rotate(-1deg) scale(1.02); text-decoration: none; }
+.categoryLabel {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--m-black);
+  color: var(--m-cream);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+}
+.categoryYellow .categoryLabel { background: var(--m-red); }
+.categoryTitle {
+  font-size: 1.3rem;
+  font-weight: 900;
+  margin: 0 0 0.5rem;
+}
+.categoryDesc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* === 引文 === */
+.quoteGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.quote {
+  padding: 1.5rem;
+  background: var(--m-cream);
+  border: 3px solid var(--m-black);
+  box-shadow: 6px 6px 0 var(--m-red);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin: 0;
+}
+.quote p { margin: 0 0 1rem; font-weight: 600; }
+.quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--m-black);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}

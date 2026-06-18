@@ -1,0 +1,387 @@
+/* ====================================================================
+ * 样式 10 — 包豪斯 Bauhaus
+ * 红蓝黄原色 + 圆形方形三角形 + 不对称布局
+ * ==================================================================== */
+
+:root {
+  --b-red: #d62828;
+  --b-blue: #003f88;
+  --b-yellow: #fcbf49;
+  --b-black: #1a1a1a;
+  --b-bg: #f5f1e8;
+  --b-cream: #fff9eb;
+}
+
+.heroBanner {
+  position: relative;
+  padding: 6rem 0 8rem;
+  color: var(--b-black);
+  background: var(--b-bg);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* 大色块几何装饰 */
+.circleYellow {
+  position: absolute;
+  top: -120px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: var(--b-yellow);
+  border-radius: 50%;
+  z-index: 0;
+}
+.triangleBlue {
+  position: absolute;
+  bottom: -60px;
+  left: 8%;
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 180px solid var(--b-blue);
+  transform: rotate(15deg);
+  z-index: 0;
+}
+.squareRed {
+  position: absolute;
+  top: 30%;
+  left: -40px;
+  width: 100px;
+  height: 100px;
+  background: var(--b-red);
+  transform: rotate(20deg);
+  z-index: 0;
+}
+
+.heroBanner .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner { padding: 4rem 1rem 5rem; }
+  .circleYellow, .triangleBlue, .squareRed { display: none; }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: end;
+}
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* === Hero === */
+.colLeft { position: relative; }
+.colRight { position: relative; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--b-black);
+  background: var(--b-cream);
+  border: 2px solid var(--b-black);
+}
+.eyebrowShape {
+  width: 14px;
+  height: 14px;
+  background: var(--b-red);
+  border-radius: 50%;
+}
+
+.title {
+  font-size: 5.5rem;
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: -0.04em;
+  color: var(--b-black);
+  line-height: 0.9;
+  text-transform: uppercase;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin: 0 0 1.5rem;
+  font-weight: 700;
+  color: var(--b-blue);
+  letter-spacing: -0.01em;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  border-bottom: 4px solid var(--b-yellow);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.lead {
+  max-width: 480px;
+  margin: 0 0 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--b-black);
+}
+
+.ctaRow {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.ctaPrimary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--b-black);
+  color: var(--b-bg);
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  border: 2px solid var(--b-black);
+}
+.ctaPrimary:hover { background: var(--b-yellow); color: var(--b-black); text-decoration: none; }
+.ctaSecondary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--b-red);
+  color: var(--b-bg);
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  border: 2px solid var(--b-black);
+  margin-left: -2px;
+}
+.ctaSecondary:hover { background: var(--b-blue); color: var(--b-bg); text-decoration: none; }
+
+.styleSwitcher {
+  margin-top: 2.5rem;
+  font-size: 0.78rem;
+  color: var(--b-black);
+  letter-spacing: 0.2em;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+.styleSwitcher a {
+  color: var(--b-red);
+  text-decoration: none;
+  margin-left: 0.5em;
+  border-bottom: 2px solid var(--b-red);
+  padding-bottom: 1px;
+  font-weight: 800;
+}
+.styleSwitcher a:hover { color: var(--b-blue); border-bottom-color: var(--b-blue); }
+
+/* === 通用区段 === */
+.skillsSection, .categoriesSection, .quoteSection {
+  padding: 5rem 0;
+}
+.skillsSection { background: var(--b-cream); }
+.categoriesSection { background: var(--b-bg); }
+.quoteSection { background: var(--b-black); color: var(--b-cream); }
+
+.sectionHeader {
+  margin-bottom: 3rem;
+  border-bottom: 3px solid var(--b-black);
+  padding-bottom: 1.5rem;
+}
+.sectionTitle {
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin: 0;
+  color: inherit;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+.titleCircle { width: 24px; height: 24px; background: var(--b-red); border-radius: 50%; flex-shrink: 0; }
+.titleSquare { width: 24px; height: 24px; background: var(--b-blue); flex-shrink: 0; }
+.sectionLead {
+  font-size: 0.95rem;
+  color: inherit;
+  margin: 0.5rem 0 0;
+  opacity: 0.7;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* === Skill 卡片 === */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.skillCard {
+  display: block;
+  position: relative;
+  padding: 2rem;
+  color: var(--b-black);
+  text-decoration: none;
+  border: 3px solid var(--b-black);
+  transition: transform 0.2s ease;
+}
+.cardBlue { background: var(--b-blue); color: var(--b-cream); }
+.cardYellow { background: var(--b-yellow); }
+.skillCard:hover {
+  transform: translate(-6px, -6px);
+  box-shadow: 6px 6px 0 var(--b-black);
+  text-decoration: none;
+  color: inherit;
+}
+.skillNumber {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+.cardYellow .skillNumber { color: var(--b-red); }
+.cardBlue .skillNumber { color: var(--b-yellow); }
+.skillCategory {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.85rem;
+  background: var(--b-black);
+  color: var(--b-bg);
+  text-transform: uppercase;
+}
+.cardBlue .skillCategory { background: var(--b-yellow); color: var(--b-black); }
+.skillTitle {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin: 0 0 0.6rem;
+  color: inherit;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+.skillDesc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: inherit;
+  margin: 0 0 1.5rem;
+  opacity: 0.85;
+}
+.skillFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid currentColor;
+  padding-top: 1rem;
+}
+.skillShape { width: 16px; height: 16px; background: currentColor; border-radius: 50%; }
+.skillCard.cardYellow .skillShape { background: var(--b-blue); }
+.skillCard.cardBlue .skillShape { background: var(--b-yellow); }
+.skillArrow { font-size: 1.4rem; font-weight: 900; }
+
+/* === 类别 === */
+.categoriesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.categoryCard {
+  display: block;
+  padding: 2rem;
+  color: var(--b-cream);
+  text-decoration: none;
+  border: 3px solid var(--b-black);
+  transition: transform 0.2s ease;
+  position: relative;
+}
+.catRed { background: var(--b-red); }
+.catBlue { background: var(--b-blue); }
+.categoryCard:hover {
+  transform: translate(-6px, -6px);
+  box-shadow: 6px 6px 0 var(--b-black);
+  text-decoration: none;
+  color: var(--b-cream);
+}
+.categoryNumber {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  color: var(--b-yellow);
+  margin-bottom: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+.categoryLabel {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.72rem;
+  background: var(--b-cream);
+  color: var(--b-black);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.categoryTitle {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin: 0 0 0.5rem;
+  color: var(--b-cream);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+.categoryDesc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--b-cream);
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* === 引文 === */
+.quoteGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 0;
+  border: 3px solid var(--b-cream);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.quote {
+  padding: 2.5rem 2rem;
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--b-cream);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  border-right: 1px solid var(--b-cream);
+}
+.quote:last-child { border-right: none; }
+.quote p { margin: 0 0 1rem; }
+.quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.78rem;
+  color: var(--b-yellow);
+  letter-spacing: 0.2em;
+  font-weight: 800;
+  text-transform: uppercase;
+}

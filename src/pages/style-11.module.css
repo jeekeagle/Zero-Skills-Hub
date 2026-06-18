@@ -1,0 +1,419 @@
+/* ====================================================================
+ * 样式 11 — 像素复古 Pixel Retro (8-bit / NES)
+ * 8-bit 字体 + 限定调色板 + 黑色硬边框
+ * ==================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --p-bg: #5c94fc;       /* 天空蓝 */
+  --p-cloud: #ffffff;
+  --p-mountain: #0078d8;
+  --p-mountain2: #d82800;
+  --p-ground: #c84c0c;
+  --p-cream: #fff8dc;
+  --p-card: #fcfcfc;
+  --p-dark: #1a1a1a;
+  --p-yellow: #fcd800;
+  --p-green: #00a800;
+  --p-pink: #f878b8;
+}
+
+* {
+  /* 像素感 — 禁用子像素抗锯齿 */
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+}
+
+.heroBanner {
+  position: relative;
+  padding: 6rem 0 12rem;
+  text-align: center;
+  color: var(--p-dark);
+  background: var(--p-bg);
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 6px solid var(--p-dark);
+}
+
+/* 像素云 1 */
+.cloud1 {
+  position: absolute;
+  top: 40px;
+  left: 8%;
+  width: 100px;
+  height: 30px;
+  background:
+    radial-gradient(circle at 25% 50%, var(--p-cloud) 0 18px, transparent 19px),
+    radial-gradient(circle at 50% 50%, var(--p-cloud) 0 22px, transparent 23px),
+    radial-gradient(circle at 75% 50%, var(--p-cloud) 0 18px, transparent 19px),
+    linear-gradient(var(--p-cloud), var(--p-cloud));
+  background-size: 30px 30px, 30px 30px, 30px 30px, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0, 25px -5px, 60px 0, 0 12px;
+  z-index: 0;
+}
+.cloud2 {
+  position: absolute;
+  top: 80px;
+  right: 12%;
+  width: 80px;
+  height: 24px;
+  background:
+    radial-gradient(circle at 33% 50%, var(--p-cloud) 0 16px, transparent 17px),
+    radial-gradient(circle at 66% 50%, var(--p-cloud) 0 18px, transparent 19px),
+    linear-gradient(var(--p-cloud), var(--p-cloud));
+  background-size: 30px 30px, 30px 30px, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0, 22px -4px, 0 10px;
+  z-index: 0;
+}
+
+/* 像素山 */
+.mountain {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background:
+    linear-gradient(135deg, var(--p-mountain) 0%, var(--p-mountain) 35%, transparent 35%) 0 0 / 80px 80px repeat-x,
+    linear-gradient(225deg, var(--p-mountain) 0%, var(--p-mountain) 45%, transparent 45%) 40px 0 / 80px 80px repeat-x,
+    linear-gradient(135deg, var(--p-mountain2) 0%, var(--p-mountain2) 30%, transparent 30%) 200px 40px / 100px 80px repeat-x,
+    linear-gradient(225deg, var(--p-mountain2) 0%, var(--p-mountain2) 40%, transparent 40%) 250px 40px / 100px 80px repeat-x;
+  z-index: 0;
+}
+
+/* 地面 */
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--p-ground) 0,
+      var(--p-ground) 16px,
+      var(--p-green) 16px,
+      var(--p-green) 32px
+    );
+  border-top: 4px solid var(--p-dark);
+  z-index: 0;
+}
+
+.heroBanner .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner { padding: 4rem 1rem 8rem; }
+  .cloud1, .cloud2, .mountain { display: none; }
+}
+
+/* === Hero === */
+.eyebrow {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  margin-bottom: 2rem;
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: var(--p-dark);
+  background: var(--p-yellow);
+  border: 4px solid var(--p-dark);
+  font-family: 'Press Start 2P', monospace;
+  box-shadow: 6px 6px 0 var(--p-dark);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  color: var(--p-cream);
+  text-shadow:
+    4px 0 var(--p-dark), -4px 0 var(--p-dark), 0 4px var(--p-dark), 0 -4px var(--p-dark),
+    4px 4px var(--p-dark), -4px -4px var(--p-dark), 4px -4px var(--p-dark), -4px 4px var(--p-dark);
+  font-family: 'Press Start 2P', monospace;
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  margin: 1.5rem 0 1.5rem;
+  font-weight: 400;
+  color: var(--p-cream);
+  text-shadow: 3px 0 var(--p-dark), -3px 0 var(--p-dark), 0 3px var(--p-dark), 0 -3px var(--p-dark);
+  font-family: 'Press Start 2P', monospace;
+  line-height: 1.6;
+}
+
+.lead {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: var(--p-dark);
+  background: var(--p-cream);
+  padding: 1.25rem;
+  border: 4px solid var(--p-dark);
+  font-family: 'Press Start 2P', monospace;
+  text-align: left;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ctaPrimary {
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
+  background: var(--p-yellow);
+  color: var(--p-dark);
+  border: 4px solid var(--p-dark);
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  font-family: 'Press Start 2P', monospace;
+  box-shadow: 6px 6px 0 var(--p-dark);
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+.ctaPrimary:hover {
+  color: var(--p-dark);
+  text-decoration: none;
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0 var(--p-dark);
+}
+.ctaSecondary {
+  display: inline-block;
+  padding: 0.85rem 1.5rem;
+  background: var(--p-pink);
+  color: var(--p-dark);
+  border: 4px solid var(--p-dark);
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  font-family: 'Press Start 2P', monospace;
+  box-shadow: 6px 6px 0 var(--p-dark);
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+.ctaSecondary:hover {
+  color: var(--p-dark);
+  text-decoration: none;
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0 var(--p-dark);
+}
+
+.styleSwitcher {
+  margin-top: 3rem;
+  font-size: 0.65rem;
+  color: var(--p-cream);
+  letter-spacing: 0.15em;
+  font-family: 'Press Start 2P', monospace;
+  text-shadow: 2px 0 var(--p-dark), -2px 0 var(--p-dark), 0 2px var(--p-dark), 0 -2px var(--p-dark);
+}
+.styleSwitcher a {
+  color: var(--p-yellow);
+  text-decoration: none;
+  margin-left: 0.5em;
+  border-bottom: 2px solid var(--p-yellow);
+  padding-bottom: 2px;
+}
+
+/* === 通用区段 === */
+.skillsSection, .categoriesSection, .quoteSection {
+  padding: 5rem 0;
+  background: var(--p-cream);
+  border-bottom: 6px solid var(--p-dark);
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+  color: var(--p-dark);
+  letter-spacing: 0.1em;
+  font-family: 'Press Start 2P', monospace;
+}
+.sectionLead {
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--p-dark);
+  margin: 0 0 3rem;
+  letter-spacing: 0.1em;
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* === Skill 卡片 === */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.skillCard {
+  display: block;
+  padding: 1.5rem;
+  background: var(--p-card);
+  border: 4px solid var(--p-dark);
+  color: var(--p-dark);
+  text-decoration: none;
+  box-shadow: 8px 8px 0 var(--p-dark);
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+.skillCard:hover {
+  color: var(--p-dark);
+  text-decoration: none;
+  transform: translate(3px, 3px);
+  box-shadow: 5px 5px 0 var(--p-dark);
+  background: var(--p-yellow);
+}
+.skillHpBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+  font-family: 'Press Start 2P', monospace;
+}
+.skillHpLabel { font-size: 0.6rem; color: var(--p-dark); flex-shrink: 0; }
+.skillHpFill {
+  height: 14px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--p-green) 0,
+      var(--p-green) 8px,
+      var(--p-dark) 8px,
+      var(--p-dark) 10px
+    );
+  border: 2px solid var(--p-dark);
+}
+.skillCategory {
+  display: inline-block;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.65rem;
+  background: var(--p-green);
+  color: var(--p-cream);
+  margin-bottom: 0.85rem;
+  font-family: 'Press Start 2P', monospace;
+  border: 2px solid var(--p-dark);
+}
+.skillTitle {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0 0 0.6rem;
+  color: var(--p-dark);
+  letter-spacing: 0.05em;
+  font-family: 'Press Start 2P', monospace;
+}
+.skillDesc {
+  font-size: 0.7rem;
+  line-height: 1.9;
+  color: var(--p-dark);
+  margin: 0 0 1rem;
+  font-family: 'Press Start 2P', monospace;
+}
+.skillFooter {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 2px dashed var(--p-dark);
+  font-size: 0.65rem;
+  font-family: 'Press Start 2P', monospace;
+  color: var(--p-mountain2);
+}
+
+/* === 类别 === */
+.categoriesList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.categoryCard {
+  display: block;
+  padding: 1.5rem;
+  background: var(--p-pink);
+  border: 4px solid var(--p-dark);
+  color: var(--p-dark);
+  text-decoration: none;
+  box-shadow: 8px 8px 0 var(--p-dark);
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+.categoryCard:hover {
+  color: var(--p-dark);
+  text-decoration: none;
+  transform: translate(3px, 3px);
+  box-shadow: 5px 5px 0 var(--p-dark);
+  background: var(--p-yellow);
+}
+.categoryHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.65rem;
+}
+.categoryNumber { color: var(--p-mountain2); }
+.categoryLabel {
+  padding: 0.3rem 0.6rem;
+  background: var(--p-cream);
+  border: 2px solid var(--p-dark);
+}
+.categoryTitle {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0 0 0.6rem;
+  color: var(--p-dark);
+  letter-spacing: 0.05em;
+  font-family: 'Press Start 2P', monospace;
+}
+.categoryDesc {
+  font-size: 0.7rem;
+  line-height: 1.9;
+  color: var(--p-dark);
+  margin: 0;
+  font-family: 'Press Start 2P', monospace;
+}
+
+/* === 引文 === */
+.quoteGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.quote {
+  padding: 1.5rem;
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 2;
+  color: var(--p-dark);
+  background: var(--p-card);
+  border: 4px solid var(--p-dark);
+  font-family: 'Press Start 2P', monospace;
+  box-shadow: 8px 8px 0 var(--p-mountain);
+}
+.quote p { margin: 0 0 1rem; }
+.quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.6rem;
+  color: var(--p-mountain2);
+  letter-spacing: 0.1em;
+  padding-top: 0.75rem;
+  border-top: 2px dashed var(--p-dark);
+}
