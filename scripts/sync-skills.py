@@ -122,12 +122,18 @@ def generate_sidebars(skills: list[dict], output_path: Path):
         "      items: ['intro'],",
         "    },",
     ]
-    for cat in sorted(by_cat.keys()):
-        label = CATEGORY_LABELS.get(cat, cat)
+    sorted_cats = sorted(by_cat.keys())
+    chinese = '一二三四五六七八九十'
+    for idx, cat in enumerate(sorted_cats):
+        cn_label = CATEGORY_LABELS.get(cat, cat)
+        ord_label = chinese[idx] if idx < len(chinese) else str(idx + 1)
+        category_label = f"第{ord_label}编 · {cn_label}（{cat}/）"
+        # 把单引号转义(不会发生因为没有,但保险)
+        safe_label = category_label.replace("'", "\\'")
         lines.extend([
             "    {",
-            f"      type: 'category',",
-            f"      label: '第N编 · {label}（{cat}/）'.replace('第N编', `第{'一二三四五六七八九十'[${sorted(by_cat.keys()).index(cat)}]}编`),",
+            "      type: 'category',",
+            f"      label: '{safe_label}',",
             "      collapsed: false,",
             "      items: [",
         ])
