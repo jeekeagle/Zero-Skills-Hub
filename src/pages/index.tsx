@@ -158,6 +158,9 @@ function HomepageHeader() {
             先看分类学视角
           </Link>
         </div>
+        <div className={styles.styleSwitcher}>
+          当前:样式 1(现代科技) · <Link to="/style-2">试试样式 2 编辑日出 →</Link>
+        </div>
       </div>
       {/* 底部淡出 */}
       <div className={styles.heroFade} />

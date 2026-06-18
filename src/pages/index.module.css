@@ -82,6 +82,25 @@
   z-index: 1;
 }
 
+/* === 样式切换链接 === */
+.styleSwitcher {
+  margin-top: 2.25rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+.styleSwitcher a {
+  color: #5fa3d8;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px dashed rgba(95, 163, 216, 0.5);
+  padding-bottom: 1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.styleSwitcher a:hover {
+  color: #7eb6e3;
+  border-bottom-color: rgba(126, 182, 227, 0.8);
+}
+
 /* 让 .container 内容在所有背景层之上 */
 .heroBanner .container {
   position: relative;
