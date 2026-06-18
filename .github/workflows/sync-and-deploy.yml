@@ -1,0 +1,85 @@
+name: Sync skills and deploy
+
+on:
+  repository_dispatch:
+    types: [sync-skills]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Hub repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clone Zero-Skills (source)
+        run: |
+          git clone --depth 1 https://github.com/jeekeagle/Zero-Skills.git zero-skills
+          echo "✅ Zero-Skills cloned"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run sync-skills.py
+        run: |
+          python scripts/sync-skills.py zero-skills
+          echo "--- diff ---"
+          git diff --stat
+
+      - name: Commit generated docs and sidebars
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add docs/ sidebars.ts
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: 同步 Zero-Skills 的 skill 章节" \
+              -m "由 ${{ github.event_name }} 触发" \
+              -m "源 commit: ${{ github.event.client_payload.sha }}"
+            git push origin main
+            echo "✅ Pushed sync commit"
+          fi
+
+  build-and-deploy:
+    needs: sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
