@@ -7,6 +7,48 @@ import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
 
+// === 内联 SVG 图标（Lucide 风格）===
+function IconGrid() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
+    </svg>
+  );
+}
+
+function IconGitBranch() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="6" cy="5" r="2.25" />
+      <circle cx="6" cy="19" r="2.25" />
+      <circle cx="18" cy="5" r="2.25" />
+      <path d="M6 7.25 V16.75" />
+      <path d="M18 7.25 V11 a3 3 0 0 1 -3 3 H8.25" />
+    </svg>
+  );
+}
+
+function IconEye() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M2.5 12 c3 -5.5 6.75 -8 9.5 -8 s6.5 2.5 9.5 8 c-3 5.5 -6.75 8 -9.5 8 s-6.5 -2.5 -9.5 -8 z" />
+      <circle cx="12" cy="12" r="3" />
+      <circle cx="12" cy="12" r="0.75" fill="currentColor" />
+    </svg>
+  );
+}
+
+function IconWrench() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M14.7 6.3 a4 4 0 0 0 -5.4 5.4 l-7 7 a2 2 0 0 0 2.8 2.8 l7 -7 a4 4 0 0 0 5.4 -5.4 l-2.5 2.5 l-2.5 -2.5 z" />
+    </svg>
+  );
+}
+
 // === Skill 目录（与 sidebars.ts / 仓库结构同步）===
 const SKILLS = [
   {
@@ -16,7 +58,7 @@ const SKILLS = [
     title: '分类学视角',
     desc: '从分类原则、分类方法及其背后的认知逻辑、权力结构和演化规律看事物。',
     to: '/perspective/taxonomy-perspective',
-    anchor: '视',
+    icon: <IconGrid />,
   },
   {
     name: 'skill-to-github',
@@ -25,7 +67,7 @@ const SKILLS = [
     title: 'Skill-to-GitHub',
     desc: '把本地 Skill 推送到 GitHub 仓库,自动维护 README 索引,七步工序一次跑通。',
     to: '/tool/skill-to-github',
-    anchor: '工',
+    icon: <IconGitBranch />,
   },
 ];
 
@@ -59,7 +101,7 @@ function HomepageHeader() {
   );
 }
 
-// === Skill 卡片网格（沿用 mg-16-code 的 4×4 视觉语言,改成 skill card）===
+// === Skill 卡片网格 ===
 function SkillsGrid() {
   return (
     <section className={styles.skillsSection}>
@@ -73,7 +115,7 @@ function SkillsGrid() {
         <div className={styles.skillsGrid}>
           {SKILLS.map((s) => (
             <Link key={s.name} to={s.to} className={styles.skillCard}>
-              <div className={styles.skillAnchor}>{s.anchor}</div>
+              <div className={styles.skillIcon}>{s.icon}</div>
               <div className={styles.skillCategory}>{s.category}</div>
               <h3 className={styles.skillTitle}>{s.title}</h3>
               <p className={styles.skillDesc}>{s.desc}</p>
@@ -85,7 +127,7 @@ function SkillsGrid() {
   );
 }
 
-// === 类别结构（沿用五编结构卡片样式）===
+// === 类别结构 ===
 const CATEGORIES = [
   {
     label: '第一编',
@@ -93,6 +135,7 @@ const CATEGORIES = [
     skills: 'taxonomy-perspective',
     to: '/perspective/taxonomy-perspective',
     desc: '分析视角(认知框架、理论锚定)。给你一个看事物的角度,而不是一个任务清单。',
+    icon: <IconEye />,
   },
   {
     label: '第二编',
@@ -100,6 +143,7 @@ const CATEGORIES = [
     skills: 'skill-to-github',
     to: '/tool/skill-to-github',
     desc: '工具(发布、转换、维护)。把视角沉淀成可交付、可复用的产物。',
+    icon: <IconWrench />,
   },
 ];
 
@@ -116,6 +160,7 @@ function CategoriesGrid() {
         <div className={styles.categoriesGrid}>
           {CATEGORIES.map((c) => (
             <Link key={c.label} to={c.to} className={styles.categoryCard}>
+              <div className={styles.categoryIcon}>{c.icon}</div>
               <div className={styles.categoryLabel}>{c.label}</div>
               <h3 className={styles.categoryTitle}>{c.title}</h3>
               <div className={styles.categorySkills}>{c.skills}</div>
@@ -128,7 +173,7 @@ function CategoriesGrid() {
   );
 }
 
-// === 引文（沿用 mg-16-code 的 blockquote 风格）===
+// === 引文 ===
 function QuoteBlock() {
   return (
     <section className={styles.quoteSection}>

@@ -155,6 +155,27 @@
   font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
 }
 
+.skillIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.75rem;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.skillIcon svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.skillCard:hover .skillIcon {
+  background: var(--accent-vermilion);
+  transform: scale(1.05);
+}
+
 .skillCategory {
   display: inline-block;
   padding: 0.2rem 0.6rem;
@@ -206,6 +227,27 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   text-decoration: none;
   color: inherit;
+}
+
+.categoryIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent-vermilion);
+  border: 1.5px solid var(--accent-vermilion);
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.categoryIcon svg {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+.categoryCard:hover .categoryIcon {
+  background: var(--accent-vermilion);
+  color: #fff;
 }
 
 .categoryLabel {
