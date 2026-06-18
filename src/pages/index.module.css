@@ -1,0 +1,264 @@
+/* === Hero === */
+.heroBanner {
+  padding: 5rem 0 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at top, var(--ifm-color-primary-lightest) 0%, transparent 50%),
+    linear-gradient(180deg, var(--ifm-background-color) 0%, var(--ifm-background-surface-color) 100%);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner { padding: 3rem 1.5rem; }
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 0.3rem 0.9rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 999px;
+  opacity: 0.9;
+}
+
+.title {
+  font-size: 3.6rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--accent-vermilion) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  margin: 1rem 0 1.5rem;
+  opacity: 0.9;
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+.lead {
+  max-width: 720px;
+  margin: 0 auto 2rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+/* === CTA === */
+.ctaRow {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ctaPrimary {
+  display: inline-block;
+  padding: 0.75rem 1.6rem;
+  background-color: var(--ifm-color-primary);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: filter 0.15s ease;
+}
+.ctaPrimary:hover {
+  filter: brightness(1.1);
+  color: #fff;
+  text-decoration: none;
+}
+.ctaSecondary {
+  display: inline-block;
+  padding: 0.75rem 1.6rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+  transition: background 0.15s ease;
+}
+.ctaSecondary:hover {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* === 通用区段 === */
+.skillsSection,
+.categoriesSection,
+.quoteSection {
+  padding: 4rem 0;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.sectionLead {
+  text-align: center;
+  font-size: 1.05rem;
+  opacity: 0.7;
+  margin-bottom: 2.5rem;
+}
+
+/* === Skill 卡片网格 === */
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.skillCard {
+  display: block;
+  padding: 1.5rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.skillCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: inherit;
+}
+
+.skillAnchor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.75rem;
+  background: var(--ifm-color-primary);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-family: 'LXGW WenKai', '霞鹜文楷', 'Noto Serif SC', serif;
+}
+
+.skillCategory {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  color: var(--accent-vermilion);
+  border: 1px solid var(--accent-vermilion);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.skillTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.skillDesc {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* === 类别卡片 === */
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.categoryCard {
+  display: block;
+  padding: 1.5rem;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.categoryCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: inherit;
+}
+
+.categoryLabel {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  color: var(--accent-vermilion);
+  border: 1px solid var(--accent-vermilion);
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+.categoryTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--ifm-heading-color);
+  font-family: var(--ifm-font-family-monospace);
+}
+.categorySkills {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-bottom: 0.6rem;
+  font-family: var(--ifm-font-family-monospace);
+}
+.categoryDesc {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* === 引文 === */
+.quoteSection {
+  background: var(--ifm-background-surface-color);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+.quote {
+  max-width: 780px;
+  margin: 1.5rem auto;
+  padding: 1rem 0 1rem 1.5rem;
+  border-left: 3px solid var(--ifm-color-primary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  font-style: italic;
+  opacity: 0.85;
+}
+.quote p { margin: 0 0 0.5rem; }
+.quote cite {
+  display: block;
+  font-size: 0.85rem;
+  font-style: normal;
+  opacity: 0.65;
+  margin-top: 0.5rem;
+}

@@ -1,21 +1,48 @@
-/**
- * Zero-Skills 站点的轻量定制样式
- */
+/* ====================================================================
+ * Zero-Skills · 主题（复刻自 mg-16-code）
+ * 字体栈：
+ *   - 西文：Inter（Google Fonts）
+ *   - 中文：LXGW WenKai 霞鹜文楷 Screen Webfont（jsDelivr）
+ *   - 代码：JetBrains Mono
+ * 亮色主色：深蓝 #1f4e79  暗色主色：暗金 #c89732  强调色：朱砂红
+ * ==================================================================== */
 
-/* 让首页与正文有更宽松的阅读宽度 */
-.markdown {
-  font-size: 16px;
-  line-height: 1.7;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.7.0/style.css');
+
+:root {
+  --ifm-color-primary: #1f4e79;
+  --ifm-color-primary-dark: #1a4268;
+  --ifm-color-primary-darker: #173d5e;
+  --ifm-color-primary-darkest: #11324d;
+  --ifm-color-primary-light: #25598a;
+  --ifm-color-primary-lighter: #2b6093;
+  --ifm-color-primary-lightest: #3872a8;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --accent-vermilion: #b1391d;
+
+  --ifm-font-family-base:
+    'Inter', 'LXGW WenKai Screen', 'LXGW WenKai', '霞鹜文楷',
+    'Noto Serif SC', 'Source Han Serif SC', 'Songti SC',
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-heading-font-family:
+    'Inter', 'LXGW WenKai Screen', 'LXGW WenKai', '霞鹜文楷',
+    'Noto Serif SC', 'Source Han Serif SC', 'Songti SC',
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-font-family-monospace:
+    'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Source Code Pro',
+    Consolas, Monaco, 'Courier New', monospace;
 }
 
-/* 章节标题更紧凑 */
-h2 {
-  margin-top: 2.2rem;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  padding-bottom: 0.4rem;
-}
-
-/* 让 code block 在 perspective 类长文档中更醒目 */
-.theme-doc-markdown pre {
-  border-left: 3px solid var(--ifm-color-primary);
+[data-theme='dark'] {
+  --ifm-color-primary: #c89732;
+  --ifm-color-primary-dark: #b38529;
+  --ifm-color-primary-darker: #a87b26;
+  --ifm-color-primary-darkest: #8a651f;
+  --ifm-color-primary-light: #d4a647;
+  --ifm-color-primary-lighter: #dab055;
+  --ifm-color-primary-lightest: #e2c074;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --accent-vermilion: #d96b4a;
 }
