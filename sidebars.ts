@@ -12,7 +12,15 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '第一编 · 视角类（perspective/）',
+      label: '第一编 · 方法论类（methodology/）',
+      collapsed: false,
+      items: [
+        'methodology/initialization-framework',
+      ],
+    },
+    {
+      type: 'category',
+      label: '第二编 · 视角类（perspective/）',
       collapsed: false,
       items: [
         'perspective/taxonomy-perspective',
@@ -20,7 +28,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '第二编 · 工具类（tool/）',
+      label: '第三编 · 工具类（tool/）',
       collapsed: false,
       items: [
         'tool/skill-to-github',
